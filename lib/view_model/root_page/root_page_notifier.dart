@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riders_memo/model/root_page/root_page_state.dart'; // model
 
+final bottomList = bottomItemList;
 // 3
 // ※※※「View」と「Model」を紐つける役割を担う※※※
 // 状態管理にはRiverpodを使用している

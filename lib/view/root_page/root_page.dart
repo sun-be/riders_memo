@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:riders_memo/view_model/root_page/root_page_notifier.dart';
+import 'package:riders_memo/view_model/root_page/root_page_notifier.dart'
+    as root_page;
 import 'package:riders_memo/model/root_page/root_page_state.dart';
 import 'package:riders_memo/view/main/index/index.dart' as main;
 import 'package:riders_memo/view/sub/index/index.dart' as sub;
+import 'package:riders_memo/view/setting/index/index.dart' as setting;
 
 class RootPage extends StatelessWidget {
   final List<Widget> _pageList = <Widget>[
     const main.Index(),
     const sub.Index(),
+    const setting.Index(),
   ];
 
   RootPage({Key? key}) : super(key: key);
@@ -18,23 +21,10 @@ class RootPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
-        final pageType = ref.watch(pageTypeProvider.state);
-
-        final tabItems = [
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.face),
-            label: '',
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.fastfood),
-            label: '',
-          ),
-        ];
+        final pageType = ref.watch(root_page.pageTypeProvider.state);
 
         return Scaffold(
-          appBar: AppBar(
-            title: const Text('handy_memo'),
-          ),
+          appBar: AppBar(),
           floatingActionButton: const FloatingButton(),
           body: _pageList[pageType.state.index],
           bottomNavigationBar: BottomNavigationBar(
@@ -42,7 +32,7 @@ class RootPage extends StatelessWidget {
             onTap: (index) {
               pageType.state = PageType.values[index];
             },
-            items: tabItems,
+            items: root_page.bottomList,
           ),
         );
       },

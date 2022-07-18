@@ -7,7 +7,7 @@ class Index extends StatelessWidget {
     return const Scaffold(
       body: Center(
         child: Icon(
-          Icons.groups,
+          Icons.settings,
           size: 200,
         ),
       ),

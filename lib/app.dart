@@ -10,7 +10,6 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return ProviderScope(
       child: MaterialApp(
-        title: 'Flutter Demo',
         theme: ThemeData(
           brightness: Brightness.light,
           primarySwatch: Colors.blue,

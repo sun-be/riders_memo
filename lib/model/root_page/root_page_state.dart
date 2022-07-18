@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 // 2→flutter pub run build_runner watch --delete-conflicting-outputs
@@ -15,7 +16,23 @@ part 'root_page_state.freezed.dart';
 enum PageType {
   first,
   second,
+  third,
 }
+
+final bottomItemList = [
+  const BottomNavigationBarItem(
+    icon: Icon(Icons.view_list),
+    label: '',
+  ),
+  const BottomNavigationBarItem(
+    icon: Icon(Icons.groups),
+    label: '',
+  ),
+  const BottomNavigationBarItem(
+    icon: Icon(Icons.settings),
+    label: '',
+  ),
+];
 
 @freezed
 class RootPageState with _$RootPageState {
